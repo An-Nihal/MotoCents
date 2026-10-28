@@ -46,7 +46,7 @@ jobs:
       - name: Upload APK artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: Fuel-and-Service-Log-APKs
+          name: MotoCents-APKs
           path: build/app/outputs/flutter-apk/*.apk
           retention-days: 14
 
