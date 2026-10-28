@@ -145,11 +145,22 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                               ),
                             ],
                           ),
-                          child: Icon(
-                            slide.icon,
-                            size: 72,
-                            color: slide.color,
-                          ),
+                          child: index == 0
+                              ? Padding(
+                                  padding: const EdgeInsets.all(14),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(22),
+                                    child: Image.asset(
+                                      'assets/images/app_logo.png',
+                                      fit: BoxFit.contain,
+                                    ),
+                                  ),
+                                )
+                              : Icon(
+                                  slide.icon,
+                                  size: 72,
+                                  color: slide.color,
+                                ),
                         ),
                         const SizedBox(height: 40),
 

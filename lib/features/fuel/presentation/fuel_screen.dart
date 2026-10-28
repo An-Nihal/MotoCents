@@ -71,7 +71,7 @@ class FuelScreen extends ConsumerWidget {
           if (currentVehicle != null)
             IconButton(
               icon: const Icon(Icons.add_rounded),
-              tooltip: 'Log Fill-Up',
+              tooltip: l10n.logFillUp,
               onPressed: () => _openAddEntry(context, currentVehicle),
             ),
         ],
@@ -156,6 +156,7 @@ class FuelScreen extends ConsumerWidget {
     VehicleData vehicle,
     SettingsState settings,
   ) {
+    final l10n = AppLocalizations.of(context)!;
     final repo = ref.watch(fuelEntriesRepositoryProvider);
     final entriesStream = repo.watchFuelEntriesForVehicle(vehicle.id);
 
@@ -217,7 +218,7 @@ class FuelScreen extends ConsumerWidget {
                         );
                       },
                       icon: const Icon(Icons.storefront_rounded, size: 18),
-                      label: const Text('Stations', style: TextStyle(fontSize: 12)),
+                      label: Text(l10n.stations, style: const TextStyle(fontSize: 12)),
                       style: OutlinedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(vertical: 10),
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -233,7 +234,7 @@ class FuelScreen extends ConsumerWidget {
                         );
                       },
                       icon: const Icon(Icons.route_rounded, size: 18),
-                      label: const Text('Trip Calc', style: TextStyle(fontSize: 12)),
+                      label: Text(l10n.tripCalc, style: const TextStyle(fontSize: 12)),
                       style: OutlinedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(vertical: 10),
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -267,7 +268,7 @@ class FuelScreen extends ConsumerWidget {
                           ),
                         ),
                         Text(
-                          '${group.value.length} fill-ups',
+                          '${group.value.length} ${l10n.fillUpsCount}',
                           style: Theme.of(context).textTheme.bodySmall,
                         ),
                       ],
@@ -299,6 +300,7 @@ class FuelScreen extends ConsumerWidget {
     VehicleData vehicle,
     SettingsState settings,
   ) {
+    final l10n = AppLocalizations.of(context)!;
     return Container(
       margin: const EdgeInsets.all(16),
       padding: const EdgeInsets.all(16),
@@ -316,7 +318,7 @@ class FuelScreen extends ConsumerWidget {
               Expanded(
                 child: _buildBannerItem(
                   context,
-                  title: 'Avg. Mileage',
+                  title: l10n.avgMileage,
                   value: FuelUnitConverter.formatEconomy(
                       summary.avgMileage, vehicle.economyUnit),
                   icon: Icons.trending_up_rounded,
@@ -331,7 +333,7 @@ class FuelScreen extends ConsumerWidget {
               Expanded(
                 child: _buildBannerItem(
                   context,
-                  title: 'Best Mileage',
+                  title: l10n.bestMileage,
                   value: FuelUnitConverter.formatEconomy(
                       summary.bestMileage, vehicle.economyUnit),
                   icon: Icons.star_rounded,
@@ -346,7 +348,7 @@ class FuelScreen extends ConsumerWidget {
               Expanded(
                 child: _buildBannerItem(
                   context,
-                  title: 'Worst Mileage',
+                  title: l10n.worstMileage,
                   value: FuelUnitConverter.formatEconomy(
                       summary.worstMileage, vehicle.economyUnit),
                   icon: Icons.trending_down_rounded,
@@ -361,19 +363,19 @@ class FuelScreen extends ConsumerWidget {
             children: [
               _buildSubStat(
                 context,
-                label: 'Total Fuel',
+                label: l10n.totalFuel,
                 value:
                     '${summary.totalFuel.toStringAsFixed(1)} ${vehicle.volumeUnit}',
               ),
               _buildSubStat(
                 context,
-                label: 'Total Spent',
+                label: l10n.totalSpent,
                 value:
                     '${settings.currencySymbol} ${summary.totalCost.toStringAsFixed(0)}',
               ),
               _buildSubStat(
                 context,
-                label: 'Avg. Price',
+                label: l10n.avgPrice,
                 value:
                     '${settings.currencySymbol} ${summary.avgPricePerUnit.toStringAsFixed(1)} / ${vehicle.volumeUnit}',
               ),
@@ -451,6 +453,7 @@ class FuelScreen extends ConsumerWidget {
     CalculatedEntryStats? stats,
     SettingsState settings,
   ) {
+    final l10n = AppLocalizations.of(context)!;
     final dateFormat = DateFormat('dd MMM yyyy, hh:mm a');
 
     return Dismissible(
@@ -466,17 +469,17 @@ class FuelScreen extends ConsumerWidget {
         return await showDialog<bool>(
           context: context,
           builder: (ctx) => AlertDialog(
-            title: const Text('Delete Entry?'),
-            content: const Text('Are you sure you want to remove this fuel entry?'),
+            title: Text(l10n.deleteEntryTitle),
+            content: Text(l10n.deleteFuelEntryConfirm),
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(ctx, false),
-                child: const Text('Cancel'),
+                child: Text(l10n.cancel),
               ),
               FilledButton(
                 style: FilledButton.styleFrom(backgroundColor: AppColors.error),
                 onPressed: () => Navigator.pop(ctx, true),
-                child: const Text('Delete'),
+                child: Text(l10n.delete),
               ),
             ],
           ),
@@ -503,7 +506,7 @@ class FuelScreen extends ConsumerWidget {
                           Row(
                             children: [
                               Text(
-                                entry.stationName ?? 'Fuel Fill-Up',
+                                entry.stationName ?? l10n.fuelFillUp,
                                 style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
@@ -621,9 +624,9 @@ class FuelScreen extends ConsumerWidget {
                             color: Colors.blue.withValues(alpha: 0.12),
                             borderRadius: BorderRadius.circular(6),
                           ),
-                          child: const Text(
-                            'Partial Fill',
-                            style: TextStyle(
+                          child: Text(
+                            l10n.partialFill,
+                            style: const TextStyle(
                               fontSize: 11,
                               fontWeight: FontWeight.w600,
                               color: Colors.blue,
@@ -638,9 +641,9 @@ class FuelScreen extends ConsumerWidget {
                             color: Colors.orange.withValues(alpha: 0.12),
                             borderRadius: BorderRadius.circular(6),
                           ),
-                          child: const Text(
-                            'Missed Fill-Up',
-                            style: TextStyle(
+                          child: Text(
+                            l10n.missedFillUp,
+                            style: const TextStyle(
                               fontSize: 11,
                               fontWeight: FontWeight.w600,
                               color: Colors.deepOrange,
@@ -669,6 +672,7 @@ class FuelScreen extends ConsumerWidget {
   }
 
   Widget _buildFuelListEmptyState(BuildContext context, VehicleData vehicle) {
+    final l10n = AppLocalizations.of(context)!;
     return Center(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 32.0),
@@ -689,14 +693,14 @@ class FuelScreen extends ConsumerWidget {
             ),
             const SizedBox(height: 20),
             Text(
-              'No fill-ups logged yet',
+              l10n.noFuelEntriesYet,
               style: Theme.of(context).textTheme.titleLarge?.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
             ),
             const SizedBox(height: 8),
             Text(
-              'Log your first fill-up for ${vehicle.name} to track mileage and fuel spend.',
+              l10n.tapToLogFuel,
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     color: Theme.of(context)
@@ -709,7 +713,7 @@ class FuelScreen extends ConsumerWidget {
             FilledButton.icon(
               onPressed: () => _openAddEntry(context, vehicle),
               icon: const Icon(Icons.add_rounded),
-              label: const Text('Log First Fill-Up'),
+              label: Text(l10n.logFillUp),
               style: FilledButton.styleFrom(
                 backgroundColor: AppColors.primaryAmber,
                 padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),

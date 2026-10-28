@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../core/localization/generated/app_localizations.dart';
 
 enum StatisticsPeriod {
   threeMonths('3 Months', 90),
@@ -9,6 +10,19 @@ enum StatisticsPeriod {
   final String label;
   final int? days;
   const StatisticsPeriod(this.label, this.days);
+
+  String getLocalizedLabel(AppLocalizations l10n) {
+    switch (this) {
+      case StatisticsPeriod.threeMonths:
+        return l10n.period3Months;
+      case StatisticsPeriod.sixMonths:
+        return l10n.period6Months;
+      case StatisticsPeriod.oneYear:
+        return l10n.period1Year;
+      case StatisticsPeriod.allTime:
+        return l10n.allTime;
+    }
+  }
 
   DateTime? getStartDate(DateTime now) {
     if (days == null) return null;

@@ -43,7 +43,6 @@ class _VehicleFormScreenState extends ConsumerState<VehicleFormScreen> {
   final List<Map<String, dynamic>> _vehicleTypes = [
     {'code': 'car', 'label': 'Car', 'icon': Icons.directions_car_rounded},
     {'code': 'motorcycle', 'label': 'Motorcycle', 'icon': Icons.two_wheeler_rounded},
-    {'code': 'cng', 'label': 'CNG / Auto', 'icon': Icons.electric_rickshaw_rounded},
     {'code': 'microbus', 'label': 'Microbus', 'icon': Icons.airport_shuttle_rounded},
     {'code': 'truck', 'label': 'Truck', 'icon': Icons.local_shipping_rounded},
     {'code': 'other', 'label': 'Other', 'icon': Icons.commute_rounded},

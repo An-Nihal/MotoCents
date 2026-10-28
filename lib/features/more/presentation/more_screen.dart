@@ -27,13 +27,48 @@ class MoreScreen extends ConsumerWidget {
       body: ListView(
         padding: const EdgeInsets.symmetric(vertical: 8),
         children: [
-          _buildSectionHeader(context, 'Garage & Vehicles'),
+          // App Logo and Branding Header
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16),
+            child: Column(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(18),
+                  child: Image.asset(
+                    'assets/images/app_logo.png',
+                    width: 72,
+                    height: 72,
+                    fit: BoxFit.contain,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  l10n.appTitle,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                ),
+                Text(
+                  l10n.versionSubtitle,
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        color: Theme.of(context)
+                            .colorScheme
+                            .onSurface
+                            .withValues(alpha: 0.6),
+                      ),
+                ),
+              ],
+            ),
+          ),
+          const Divider(height: 8),
+
+          _buildSectionHeader(context, l10n.garageAndVehicles),
           _buildTile(
             context,
             icon: Icons.garage_rounded,
             color: AppColors.primaryAmber,
-            title: 'My Garage',
-            subtitle: 'Add, edit, and manage all your vehicles',
+            title: l10n.myGarage,
+            subtitle: l10n.myGarageSubtitle,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
@@ -44,13 +79,13 @@ class MoreScreen extends ConsumerWidget {
           ),
           const Divider(height: 24),
 
-          _buildSectionHeader(context, 'Features'),
+          _buildSectionHeader(context, l10n.features),
           _buildTile(
             context,
             icon: Icons.payments_rounded,
             color: Colors.purple,
             title: l10n.expenses,
-            subtitle: 'Parking, tolls, fines, and other costs',
+            subtitle: l10n.expensesSubtitle,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
@@ -64,7 +99,7 @@ class MoreScreen extends ConsumerWidget {
             icon: Icons.bar_chart_rounded,
             color: Colors.blue,
             title: l10n.statistics,
-            subtitle: 'Mileage trends, cost breakdown, spend charts',
+            subtitle: l10n.statisticsSubtitle,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
@@ -106,7 +141,7 @@ class MoreScreen extends ConsumerWidget {
             icon: Icons.picture_as_pdf_rounded,
             color: Colors.teal,
             title: l10n.reports,
-            subtitle: 'PDF vehicle history, CSV/Excel export',
+            subtitle: l10n.reportsSubtitle,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
@@ -136,7 +171,7 @@ class MoreScreen extends ConsumerWidget {
             icon: Icons.settings_rounded,
             color: Colors.blueGrey,
             title: l10n.settings,
-            subtitle: 'Units, reminders, vault security, custom types',
+            subtitle: l10n.settingsSubtitle,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
@@ -208,22 +243,22 @@ class MoreScreen extends ConsumerWidget {
           ),
 
           const Divider(height: 24),
-          _buildSectionHeader(context, 'About & Privacy'),
-          const ListTile(
-            leading: CircleAvatar(
+          _buildSectionHeader(context, l10n.aboutAndPrivacy),
+          ListTile(
+            leading: const CircleAvatar(
               backgroundColor: Colors.transparent,
               child: Icon(Icons.security_rounded, color: AppColors.success),
             ),
-            title: Text('Local-Only & Private'),
-            subtitle: Text('Your data never leaves your device.'),
+            title: Text(l10n.localOnlyAndPrivate),
+            subtitle: Text(l10n.localOnlyAndPrivateDesc),
           ),
-          const ListTile(
-            leading: CircleAvatar(
+          ListTile(
+            leading: const CircleAvatar(
               backgroundColor: Colors.transparent,
               child: Icon(Icons.info_outline_rounded),
             ),
-            title: Text('Version'),
-            subtitle: Text('1.0.0 (Build 1) • Offline First'),
+            title: Text(l10n.version),
+            subtitle: Text(l10n.versionSubtitle),
           ),
         ],
       ),

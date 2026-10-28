@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
+import '../../../../core/localization/generated/app_localizations.dart';
 import '../../../../core/providers/settings_provider.dart';
 import '../../shell/presentation/vehicle_selector_app_bar.dart';
 import '../data/expenses_repository.dart';
@@ -17,6 +18,19 @@ enum ExpensePeriodFilter {
 
   final String label;
   const ExpensePeriodFilter(this.label);
+
+  String getLocalizedLabel(AppLocalizations l10n) {
+    switch (this) {
+      case ExpensePeriodFilter.all:
+        return l10n.filterAll;
+      case ExpensePeriodFilter.thisMonth:
+        return l10n.thisMonth;
+      case ExpensePeriodFilter.lastMonth:
+        return l10n.lastMonth;
+      case ExpensePeriodFilter.thisYear:
+        return l10n.thisYear;
+    }
+  }
 }
 
 class ExpensesScreen extends ConsumerStatefulWidget {
@@ -32,13 +46,14 @@ class _ExpensesScreenState extends ConsumerState<ExpensesScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final settings = ref.watch(settingsProvider);
     final expensesAsync = ref.watch(expensesStreamProvider);
     final categories = ref.watch(expenseCategoriesProvider).asData?.value ?? [];
 
     return Scaffold(
-      appBar: const VehicleAppBar(
-        title: 'Other Expenses',
+      appBar: VehicleAppBar(
+        title: l10n.expenses,
       ),
       body: expensesAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
@@ -89,7 +104,7 @@ class _ExpensesScreenState extends ConsumerState<ExpensesScreen> {
                     children: [
                       _buildKpiCard(
                         context,
-                        title: 'This Month',
+                        title: l10n.thisMonth,
                         value:
                             '${settings.currencySymbol} ${thisMonthTotal.toStringAsFixed(0)}',
                         icon: Icons.calendar_today_rounded,
@@ -98,7 +113,7 @@ class _ExpensesScreenState extends ConsumerState<ExpensesScreen> {
                       const SizedBox(width: 10),
                       _buildKpiCard(
                         context,
-                        title: 'All-Time Spend',
+                        title: l10n.allTimeSpend,
                         value:
                             '${settings.currencySymbol} ${allTimeTotal.toStringAsFixed(0)}',
                         icon: Icons.account_balance_wallet_rounded,
@@ -107,7 +122,7 @@ class _ExpensesScreenState extends ConsumerState<ExpensesScreen> {
                       const SizedBox(width: 10),
                       _buildKpiCard(
                         context,
-                        title: 'Total Logs',
+                        title: l10n.totalLogs,
                         value: '${allExpenses.length}',
                         icon: Icons.receipt_rounded,
                         color: Colors.teal.shade600,
@@ -133,7 +148,7 @@ class _ExpensesScreenState extends ConsumerState<ExpensesScreen> {
                             return Padding(
                               padding: const EdgeInsets.only(right: 8),
                               child: ChoiceChip(
-                                label: Text(f.label),
+                                label: Text(f.getLocalizedLabel(l10n)),
                                 selected: isSelected,
                                 onSelected: (selected) {
                                   if (selected) {
@@ -150,6 +165,7 @@ class _ExpensesScreenState extends ConsumerState<ExpensesScreen> {
                       // Category Dropdown
                       if (categories.isNotEmpty)
                         DropdownButtonFormField<String?>(
+                          isExpanded: true,
                           initialValue: _selectedCategoryId,
                           decoration: InputDecoration(
                             isDense: true,
@@ -162,11 +178,11 @@ class _ExpensesScreenState extends ConsumerState<ExpensesScreen> {
                             ),
                             prefixIcon: const Icon(Icons.filter_list_rounded, size: 20),
                           ),
-                          hint: const Text('Filter by Category (All)'),
+                          hint: Text(l10n.filterByCategory),
                           items: [
-                            const DropdownMenuItem<String?>(
+                            DropdownMenuItem<String?>(
                               value: null,
-                              child: Text('All Categories'),
+                              child: Text(l10n.allCategories),
                             ),
                             ...categories.map((c) {
                               return DropdownMenuItem<String?>(
@@ -182,7 +198,12 @@ class _ExpensesScreenState extends ConsumerState<ExpensesScreen> {
                                       ),
                                     ),
                                     const SizedBox(width: 8),
-                                    Text(c.name),
+                                    Expanded(
+                                      child: Text(
+                                        c.name,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    ),
                                   ],
                                 ),
                               );
@@ -225,7 +246,7 @@ class _ExpensesScreenState extends ConsumerState<ExpensesScreen> {
           );
         },
         icon: const Icon(Icons.add_rounded),
-        label: const Text('Add Expense'),
+        label: Text(l10n.addExpense),
       ),
     );
   }
@@ -419,28 +440,31 @@ class _ExpensesScreenState extends ConsumerState<ExpensesScreen> {
                     _confirmDelete(context, exp.id);
                   }
                 },
-                itemBuilder: (context) => [
-                  const PopupMenuItem(
-                    value: 'edit',
-                    child: Row(
-                      children: [
-                        Icon(Icons.edit_rounded, size: 18),
-                        SizedBox(width: 8),
-                        Text('Edit'),
-                      ],
+                itemBuilder: (context) {
+                  final l10n = AppLocalizations.of(context)!;
+                  return [
+                    PopupMenuItem(
+                      value: 'edit',
+                      child: Row(
+                        children: [
+                          const Icon(Icons.edit_rounded, size: 18),
+                          const SizedBox(width: 8),
+                          Text(l10n.edit),
+                        ],
+                      ),
                     ),
-                  ),
-                  const PopupMenuItem(
-                    value: 'delete',
-                    child: Row(
-                      children: [
-                        Icon(Icons.delete_outline_rounded, size: 18, color: Colors.red),
-                        SizedBox(width: 8),
-                        Text('Delete', style: TextStyle(color: Colors.red)),
-                      ],
+                    PopupMenuItem(
+                      value: 'delete',
+                      child: Row(
+                        children: [
+                          const Icon(Icons.delete_outline_rounded, size: 18, color: Colors.red),
+                          const SizedBox(width: 8),
+                          Text(l10n.delete, style: const TextStyle(color: Colors.red)),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ];
+                },
               ),
             ],
           ),
@@ -450,6 +474,7 @@ class _ExpensesScreenState extends ConsumerState<ExpensesScreen> {
   }
 
   Widget _buildEmptyState(bool isTrulyEmpty) {
+    final l10n = AppLocalizations.of(context)!;
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(32.0),
@@ -470,7 +495,7 @@ class _ExpensesScreenState extends ConsumerState<ExpensesScreen> {
             ),
             const SizedBox(height: 20),
             Text(
-              isTrulyEmpty ? 'No Expenses Logged' : 'No Matching Expenses',
+              isTrulyEmpty ? l10n.noExpensesLogged : l10n.noMatchingExpenses,
               style: Theme.of(context).textTheme.titleLarge?.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
@@ -478,8 +503,8 @@ class _ExpensesScreenState extends ConsumerState<ExpensesScreen> {
             const SizedBox(height: 8),
             Text(
               isTrulyEmpty
-                  ? 'Track other costs like Parking, Tolls, Wash, Traffic Fines, Insurance, and Accessories.'
-                  : 'Try selecting a different time filter or category above.',
+                  ? l10n.expensesEmptyDesc
+                  : l10n.expensesFilterEmptyDesc,
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     color: Theme.of(context)
@@ -499,7 +524,7 @@ class _ExpensesScreenState extends ConsumerState<ExpensesScreen> {
                   );
                 },
                 icon: const Icon(Icons.add_rounded),
-                label: const Text('Add Expense'),
+                label: Text(l10n.addExpense),
                 style: FilledButton.styleFrom(backgroundColor: Colors.purple),
               ),
           ],
@@ -509,24 +534,25 @@ class _ExpensesScreenState extends ConsumerState<ExpensesScreen> {
   }
 
   Future<void> _confirmDelete(BuildContext context, String expenseId) async {
+    final l10n = AppLocalizations.of(context)!;
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Delete Expense?'),
-        content: const Text(
-          'Are you sure you want to delete this expense record?',
+        title: Text(l10n.deleteExpenseTitle),
+        content: Text(
+          l10n.deleteExpenseConfirm,
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx, false),
-            child: const Text('Cancel'),
+            child: Text(l10n.cancel),
           ),
           FilledButton(
             style: FilledButton.styleFrom(
               backgroundColor: Theme.of(context).colorScheme.error,
             ),
             onPressed: () => Navigator.pop(ctx, true),
-            child: const Text('Delete'),
+            child: Text(l10n.delete),
           ),
         ],
       ),
@@ -536,7 +562,7 @@ class _ExpensesScreenState extends ConsumerState<ExpensesScreen> {
       await ref.read(expensesRepositoryProvider).softDeleteExpense(expenseId);
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Expense deleted')),
+          SnackBar(content: Text(l10n.expenseDeleted)),
         );
       }
     }

@@ -73,5 +73,46 @@ void main() {
     await repo.restore('fe1');
     final afterRestore = await repo.watchFuelEntriesForVehicle('v1').first;
     expect(afterRestore.length, 1);
+
+    // 7. getEntriesForVehicle returns list sorted ascending
+    await repo.saveEntry(
+      FuelEntriesCompanion.insert(
+        id: 'fe2',
+        vehicleId: 'v1',
+        entryDateTime: now.add(const Duration(days: 5)),
+        odometer: 10800.0,
+        quantity: 25.0,
+        pricePerUnit: 130.0,
+        totalCost: 3250.0,
+        fuelType: 'octane',
+        createdAt: Value(now),
+        updatedAt: Value(now),
+      ),
+    );
+    await repo.saveEntry(
+      FuelEntriesCompanion.insert(
+        id: 'fe3',
+        vehicleId: 'v1',
+        entryDateTime: now.add(const Duration(days: 10)),
+        odometer: 11200.0,
+        quantity: 28.0,
+        pricePerUnit: 130.0,
+        totalCost: 3640.0,
+        fuelType: 'octane',
+        createdAt: Value(now),
+        updatedAt: Value(now),
+      ),
+    );
+
+    final allEntries = await repo.getEntriesForVehicle('v1');
+    expect(allEntries.length, 3);
+    expect(allEntries[0].id, 'fe1');
+    expect(allEntries[1].id, 'fe2');
+    expect(allEntries[2].id, 'fe3');
+
+    // Middle entry fe2 has previous entry fe1 and next entry fe3
+    final idx = allEntries.indexWhere((e) => e.id == 'fe2');
+    expect(allEntries[idx - 1].odometer, 10450.0);
+    expect(allEntries[idx + 1].odometer, 11200.0);
   });
 }

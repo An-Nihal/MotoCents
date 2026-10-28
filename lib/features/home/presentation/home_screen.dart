@@ -257,7 +257,7 @@ class HomeScreen extends ConsumerWidget {
                           );
                         },
                         icon: const Icon(Icons.local_gas_station_rounded, size: 16),
-                        label: const Text('Add Fuel', style: TextStyle(fontSize: 12)),
+                        label: Text(l10n.addFuel, style: const TextStyle(fontSize: 12)),
                         style: OutlinedButton.styleFrom(
                           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
                           shape: RoundedRectangleBorder(
@@ -278,7 +278,7 @@ class HomeScreen extends ConsumerWidget {
                           );
                         },
                         icon: const Icon(Icons.build_rounded, size: 16),
-                        label: const Text('Log Service', style: TextStyle(fontSize: 12)),
+                        label: Text(l10n.logService, style: const TextStyle(fontSize: 12)),
                         style: OutlinedButton.styleFrom(
                           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
                           shape: RoundedRectangleBorder(
@@ -299,7 +299,7 @@ class HomeScreen extends ConsumerWidget {
                           );
                         },
                         icon: const Icon(Icons.payments_rounded, size: 16),
-                        label: const Text('Add Expense', style: TextStyle(fontSize: 12)),
+                        label: Text(l10n.addExpense, style: const TextStyle(fontSize: 12)),
                         style: OutlinedButton.styleFrom(
                           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
                           shape: RoundedRectangleBorder(
@@ -348,14 +348,14 @@ class HomeScreen extends ConsumerWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'View Statistics & Cost Analysis',
+                                l10n.viewStatisticsCostAnalysis,
                                 style: Theme.of(context).textTheme.titleSmall?.copyWith(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 13,
                                     ),
                               ),
                               Text(
-                                'TCO breakdown, fuel economy, and spending trends',
+                                l10n.statisticsCostAnalysisSubtitle,
                                 style: Theme.of(context).textTheme.bodySmall?.copyWith(
                                       color: Theme.of(context)
                                           .colorScheme
@@ -455,7 +455,7 @@ class HomeScreen extends ConsumerWidget {
                                         ),
                                       );
                                     },
-                                    child: const Text('Set Reminder'),
+                                    child: Text(l10n.setReminder),
                                   ),
                                 ],
                               ),
@@ -516,7 +516,7 @@ class HomeScreen extends ConsumerWidget {
                                   ),
                               ] else ...[
                                 Text(
-                                  'No active reminders. Tap "Set Reminder" to get notified.',
+                                  l10n.noActiveReminders,
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodyMedium
@@ -593,7 +593,7 @@ class HomeScreen extends ConsumerWidget {
                                 ),
                                 TextButton(
                                   onPressed: () => context.go('/documents'),
-                                  child: const Text('View Vault'),
+                                  child: Text(l10n.viewVault),
                                 ),
                               ],
                             ),
@@ -646,7 +646,7 @@ class HomeScreen extends ConsumerWidget {
                               Text(
                                 allDocs.isEmpty
                                     ? 'No documents added yet. Tap to add your License & Registration.'
-                                    : 'All ${allDocs.length} documents are up to date.',
+                                    : l10n.noExpiringDocuments,
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyMedium

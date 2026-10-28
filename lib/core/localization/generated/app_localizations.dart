@@ -751,6 +751,444 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'About Fuel & Service Log'**
   String get aboutApp;
+
+  /// No description provided for @garageAndVehicles.
+  ///
+  /// In en, this message translates to:
+  /// **'Garage & Vehicles'**
+  String get garageAndVehicles;
+
+  /// No description provided for @myGarage.
+  ///
+  /// In en, this message translates to:
+  /// **'My Garage'**
+  String get myGarage;
+
+  /// No description provided for @myGarageSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add, edit, and manage all your vehicles'**
+  String get myGarageSubtitle;
+
+  /// No description provided for @expensesSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Parking, tolls, fines, and other costs'**
+  String get expensesSubtitle;
+
+  /// No description provided for @statisticsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Mileage trends, cost breakdown, spend charts'**
+  String get statisticsSubtitle;
+
+  /// No description provided for @features.
+  ///
+  /// In en, this message translates to:
+  /// **'Features'**
+  String get features;
+
+  /// No description provided for @settingsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Units, reminders, vault security, custom types'**
+  String get settingsSubtitle;
+
+  /// No description provided for @aboutAndPrivacy.
+  ///
+  /// In en, this message translates to:
+  /// **'About & Privacy'**
+  String get aboutAndPrivacy;
+
+  /// No description provided for @localOnlyAndPrivate.
+  ///
+  /// In en, this message translates to:
+  /// **'Local-Only & Private'**
+  String get localOnlyAndPrivate;
+
+  /// No description provided for @localOnlyAndPrivateDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Your data never leaves your device.'**
+  String get localOnlyAndPrivateDesc;
+
+  /// No description provided for @version.
+  ///
+  /// In en, this message translates to:
+  /// **'Version'**
+  String get version;
+
+  /// No description provided for @versionSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'1.0.0 (Build 1) • Offline First'**
+  String get versionSubtitle;
+
+  /// No description provided for @logService.
+  ///
+  /// In en, this message translates to:
+  /// **'Log Service'**
+  String get logService;
+
+  /// No description provided for @setReminder.
+  ///
+  /// In en, this message translates to:
+  /// **'Set Reminder'**
+  String get setReminder;
+
+  /// No description provided for @viewVault.
+  ///
+  /// In en, this message translates to:
+  /// **'View Vault'**
+  String get viewVault;
+
+  /// No description provided for @viewStatisticsCostAnalysis.
+  ///
+  /// In en, this message translates to:
+  /// **'View Statistics & Cost Analysis'**
+  String get viewStatisticsCostAnalysis;
+
+  /// No description provided for @statisticsCostAnalysisSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'TCO breakdown, fuel economy, and spending trends'**
+  String get statisticsCostAnalysisSubtitle;
+
+  /// No description provided for @noActiveReminders.
+  ///
+  /// In en, this message translates to:
+  /// **'No active reminders. Tap \"Set Reminder\" to get notified.'**
+  String get noActiveReminders;
+
+  /// No description provided for @noExpiringDocuments.
+  ///
+  /// In en, this message translates to:
+  /// **'No expiring documents in the next 30 days.'**
+  String get noExpiringDocuments;
+
+  /// No description provided for @logFillUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Log Fill-Up'**
+  String get logFillUp;
+
+  /// No description provided for @stations.
+  ///
+  /// In en, this message translates to:
+  /// **'Stations'**
+  String get stations;
+
+  /// No description provided for @tripCalc.
+  ///
+  /// In en, this message translates to:
+  /// **'Trip Calc'**
+  String get tripCalc;
+
+  /// No description provided for @bestMileage.
+  ///
+  /// In en, this message translates to:
+  /// **'Best Mileage'**
+  String get bestMileage;
+
+  /// No description provided for @worstMileage.
+  ///
+  /// In en, this message translates to:
+  /// **'Worst Mileage'**
+  String get worstMileage;
+
+  /// No description provided for @totalFuel.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Fuel'**
+  String get totalFuel;
+
+  /// No description provided for @totalSpent.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Spent'**
+  String get totalSpent;
+
+  /// No description provided for @avgPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'Avg. Price'**
+  String get avgPrice;
+
+  /// No description provided for @deleteEntryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Entry?'**
+  String get deleteEntryTitle;
+
+  /// No description provided for @deleteFuelEntryConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to remove this fuel entry?'**
+  String get deleteFuelEntryConfirm;
+
+  /// No description provided for @fuelFillUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Fuel Fill-Up'**
+  String get fuelFillUp;
+
+  /// No description provided for @partialFill.
+  ///
+  /// In en, this message translates to:
+  /// **'Partial Fill'**
+  String get partialFill;
+
+  /// No description provided for @missedFillUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Missed Fill-Up'**
+  String get missedFillUp;
+
+  /// No description provided for @fillUpsCount.
+  ///
+  /// In en, this message translates to:
+  /// **'fill-ups'**
+  String get fillUpsCount;
+
+  /// No description provided for @noFuelEntriesYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No fuel entries yet'**
+  String get noFuelEntriesYet;
+
+  /// No description provided for @tapToLogFuel.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap + to log your first fill-up'**
+  String get tapToLogFuel;
+
+  /// No description provided for @filterAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get filterAll;
+
+  /// No description provided for @thisMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'This Month'**
+  String get thisMonth;
+
+  /// No description provided for @lastMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'Last Month'**
+  String get lastMonth;
+
+  /// No description provided for @thisYear.
+  ///
+  /// In en, this message translates to:
+  /// **'This Year'**
+  String get thisYear;
+
+  /// No description provided for @allTime.
+  ///
+  /// In en, this message translates to:
+  /// **'All Time'**
+  String get allTime;
+
+  /// No description provided for @allTimeSpend.
+  ///
+  /// In en, this message translates to:
+  /// **'All-Time Spend'**
+  String get allTimeSpend;
+
+  /// No description provided for @totalLogs.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Logs'**
+  String get totalLogs;
+
+  /// No description provided for @filterByCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter by Category (All)'**
+  String get filterByCategory;
+
+  /// No description provided for @allCategories.
+  ///
+  /// In en, this message translates to:
+  /// **'All Categories'**
+  String get allCategories;
+
+  /// No description provided for @noExpensesLogged.
+  ///
+  /// In en, this message translates to:
+  /// **'No Expenses Logged'**
+  String get noExpensesLogged;
+
+  /// No description provided for @noMatchingExpenses.
+  ///
+  /// In en, this message translates to:
+  /// **'No Matching Expenses'**
+  String get noMatchingExpenses;
+
+  /// No description provided for @expensesEmptyDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Track other costs like Parking, Tolls, Wash, Traffic Fines, Insurance, and Accessories.'**
+  String get expensesEmptyDesc;
+
+  /// No description provided for @expensesFilterEmptyDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Try selecting a different time filter or category above.'**
+  String get expensesFilterEmptyDesc;
+
+  /// No description provided for @deleteExpenseTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Expense?'**
+  String get deleteExpenseTitle;
+
+  /// No description provided for @deleteExpenseConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete this expense record?'**
+  String get deleteExpenseConfirm;
+
+  /// No description provided for @expenseDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Expense deleted'**
+  String get expenseDeleted;
+
+  /// No description provided for @statisticsAndCharts.
+  ///
+  /// In en, this message translates to:
+  /// **'Statistics & Charts'**
+  String get statisticsAndCharts;
+
+  /// No description provided for @period3Months.
+  ///
+  /// In en, this message translates to:
+  /// **'3 Months'**
+  String get period3Months;
+
+  /// No description provided for @period6Months.
+  ///
+  /// In en, this message translates to:
+  /// **'6 Months'**
+  String get period6Months;
+
+  /// No description provided for @period1Year.
+  ///
+  /// In en, this message translates to:
+  /// **'1 Year'**
+  String get period1Year;
+
+  /// No description provided for @totalSpendTco.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Spend (TCO)'**
+  String get totalSpendTco;
+
+  /// No description provided for @costPer.
+  ///
+  /// In en, this message translates to:
+  /// **'Cost per'**
+  String get costPer;
+
+  /// No description provided for @costPerDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Cost per Day'**
+  String get costPerDay;
+
+  /// No description provided for @averageEconomy.
+  ///
+  /// In en, this message translates to:
+  /// **'Average Economy'**
+  String get averageEconomy;
+
+  /// No description provided for @costBreakdownTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Cost Breakdown (TCO)'**
+  String get costBreakdownTitle;
+
+  /// No description provided for @costBreakdownSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Distribution across Fuel, Service, and Other Expenses'**
+  String get costBreakdownSubtitle;
+
+  /// No description provided for @monthlyRunningCost.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly Running Cost'**
+  String get monthlyRunningCost;
+
+  /// No description provided for @monthlyRunningCostSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Total spending trend per calendar month'**
+  String get monthlyRunningCostSubtitle;
+
+  /// No description provided for @monthlySpendingTrend.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly Spending Trend'**
+  String get monthlySpendingTrend;
+
+  /// No description provided for @monthlySpendingTrendSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Combined breakdown of monthly maintenance, fuel & expenses'**
+  String get monthlySpendingTrendSubtitle;
+
+  /// No description provided for @fuelEfficiencyTrend.
+  ///
+  /// In en, this message translates to:
+  /// **'Fuel Efficiency Trend'**
+  String get fuelEfficiencyTrend;
+
+  /// No description provided for @fuelEfficiencyTrendSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Full-to-full calculated economy across fill-ups'**
+  String get fuelEfficiencyTrendSubtitle;
+
+  /// No description provided for @fuelEconomyTrend.
+  ///
+  /// In en, this message translates to:
+  /// **'Fuel Economy Trend'**
+  String get fuelEconomyTrend;
+
+  /// No description provided for @fuelEconomyTrendSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Historical mileage performance across fill-ups'**
+  String get fuelEconomyTrendSubtitle;
+
+  /// No description provided for @expensesByCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Other Expenses by Category'**
+  String get expensesByCategory;
+
+  /// No description provided for @expensesByCategorySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Breakdown of parking, tolls, wash, fines, etc.'**
+  String get expensesByCategorySubtitle;
+
+  /// No description provided for @noStatisticsAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No Statistics Yet'**
+  String get noStatisticsAvailable;
+
+  /// No description provided for @noStatisticsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Add fuel fill-ups or service records to view analytics.'**
+  String get noStatisticsDesc;
 }
 
 class _AppLocalizationsDelegate

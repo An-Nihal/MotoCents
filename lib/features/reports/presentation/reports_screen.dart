@@ -142,6 +142,7 @@ class _ReportsScreenState extends ConsumerState<ReportsScreen> {
             ),
             const SizedBox(height: 12),
             DropdownButtonFormField<String>(
+              isExpanded: true,
               initialValue: current.id,
               decoration: InputDecoration(
                 isDense: true,
@@ -158,6 +159,8 @@ class _ReportsScreenState extends ConsumerState<ReportsScreen> {
                   value: v.id,
                   child: Text(
                     '${v.name}${subtitle.isNotEmpty ? " ($subtitle)" : ""}',
+                    softWrap: true,
+                    maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
                 );

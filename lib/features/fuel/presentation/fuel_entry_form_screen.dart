@@ -48,6 +48,7 @@ class _FuelEntryFormScreenState extends ConsumerState<FuelEntryFormScreen> {
   bool _isSaving = false;
   List<String> _stationSuggestions = [];
   FuelEntryData? _previousEntry;
+  FuelEntryData? _nextEntry;
 
   @override
   void initState() {
@@ -86,12 +87,35 @@ class _FuelEntryFormScreenState extends ConsumerState<FuelEntryFormScreen> {
   Future<void> _loadContextData() async {
     final repo = ref.read(fuelEntriesRepositoryProvider);
     final stations = await repo.getStationNames(widget.vehicle.id);
-    final prev = await repo.getLatestEntryForVehicle(widget.vehicle.id);
+    FuelEntryData? prev;
+    FuelEntryData? next;
+
+    if (widget.entryToEdit == null) {
+      prev = await repo.getLatestEntryForVehicle(widget.vehicle.id);
+      next = null;
+    } else {
+      final all = await repo.getEntriesForVehicle(widget.vehicle.id);
+      final idx = all.indexWhere((e) => e.id == widget.entryToEdit!.id);
+      if (idx != -1) {
+        prev = idx > 0 ? all[idx - 1] : null;
+        next = idx < all.length - 1 ? all[idx + 1] : null;
+      } else {
+        final before = all
+            .where((e) => e.entryDateTime.isBefore(widget.entryToEdit!.entryDateTime))
+            .toList();
+        prev = before.isNotEmpty ? before.last : null;
+        final after = all
+            .where((e) => e.entryDateTime.isAfter(widget.entryToEdit!.entryDateTime))
+            .toList();
+        next = after.isNotEmpty ? after.first : null;
+      }
+    }
 
     if (mounted) {
       setState(() {
         _stationSuggestions = stations;
         _previousEntry = prev;
+        _nextEntry = next;
       });
     }
   }
@@ -520,7 +544,7 @@ class _FuelEntryFormScreenState extends ConsumerState<FuelEntryFormScreen> {
                 hintText: 'e.g. 15450',
                 helperText: _useTripMeter
                     ? 'Calculated from trip distance'
-                    : 'Previous reading: ${prevOdo.toStringAsFixed(0)} ${widget.vehicle.distanceUnit}',
+                    : 'Previous reading: ${prevOdo.toStringAsFixed(0)} ${widget.vehicle.distanceUnit}${_nextEntry != null ? ' • Next: ${_nextEntry!.odometer.toStringAsFixed(0)} ${widget.vehicle.distanceUnit}' : ''}',
                 prefixIcon: const Icon(Icons.speed_rounded),
               ),
               validator: (val) {
@@ -529,10 +553,15 @@ class _FuelEntryFormScreenState extends ConsumerState<FuelEntryFormScreen> {
                 }
                 final odo = double.tryParse(val);
                 if (odo == null) return 'Enter a valid number';
-                return FuelEntryAutoCalc.validateOdometer(
+                final err = FuelEntryAutoCalc.validateOdometer(
                   newOdometer: odo,
                   previousOdometer: prevOdo,
                 );
+                if (err != null) return err;
+                if (_nextEntry != null && odo >= _nextEntry!.odometer) {
+                  return 'Odometer must be less than next reading (${_nextEntry!.odometer.toStringAsFixed(0)})';
+                }
+                return null;
               },
             ),
             const SizedBox(height: 20),

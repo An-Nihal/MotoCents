@@ -18,6 +18,16 @@ class FuelEntriesRepository {
         .watch();
   }
 
+  Future<List<FuelEntryData>> getEntriesForVehicle(String vehicleId) {
+    return (_db.select(_db.fuelEntries)
+          ..where((tbl) => tbl.vehicleId.equals(vehicleId) & tbl.deletedAt.isNull())
+          ..orderBy([
+            (t) => OrderingTerm(expression: t.entryDateTime, mode: OrderingMode.asc),
+            (t) => OrderingTerm(expression: t.odometer, mode: OrderingMode.asc),
+          ]))
+        .get();
+  }
+
   Future<FuelEntryData?> getLatestEntryForVehicle(String vehicleId) {
     return (_db.select(_db.fuelEntries)
           ..where((tbl) => tbl.vehicleId.equals(vehicleId) & tbl.deletedAt.isNull())

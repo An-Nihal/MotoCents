@@ -2,6 +2,7 @@ import 'dart:math' as math;
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../../core/localization/generated/app_localizations.dart';
 import '../../../../core/providers/settings_provider.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../shell/presentation/vehicle_selector_app_bar.dart';
@@ -18,15 +19,29 @@ class StatisticsScreen extends ConsumerStatefulWidget {
 class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
   int _touchedPieIndex = -1;
 
+  String _getLocalizedTcoLabel(String label, AppLocalizations l10n) {
+    switch (label.toLowerCase()) {
+      case 'fuel':
+        return l10n.navFuel;
+      case 'service':
+        return l10n.navService;
+      case 'other expenses':
+        return l10n.expenses;
+      default:
+        return label;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final settings = ref.watch(settingsProvider);
     final selectedPeriod = ref.watch(statisticsPeriodProvider);
     final summaryAsync = ref.watch(statisticsSummaryProvider);
 
     return Scaffold(
-      appBar: const VehicleAppBar(
-        title: 'Statistics & Charts',
+      appBar: VehicleAppBar(
+        title: l10n.statisticsAndCharts,
       ),
       body: summaryAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
@@ -48,7 +63,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
                         return Padding(
                           padding: const EdgeInsets.only(right: 8),
                           child: ChoiceChip(
-                            label: Text(p.label),
+                            label: Text(p.getLocalizedLabel(l10n)),
                             selected: isSelected,
                             onSelected: (selected) {
                               if (selected) {
@@ -78,7 +93,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
                         Row(
                           children: [
                             _buildMetricTile(
-                              title: 'Total Spend (TCO)',
+                              title: l10n.totalSpendTco,
                               value:
                                   '${settings.currencySymbol} ${stats.totalSpend.toStringAsFixed(0)}',
                               icon: Icons.account_balance_wallet_rounded,
@@ -86,7 +101,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
                             ),
                             const SizedBox(width: 12),
                             _buildMetricTile(
-                              title: 'Cost per ${settings.distanceUnit}',
+                              title: '${l10n.costPer} ${settings.distanceUnit}',
                               value: stats.costPerDistance > 0
                                   ? '${settings.currencySymbol} ${stats.costPerDistance.toStringAsFixed(2)}'
                                   : 'N/A',
@@ -99,7 +114,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
                         Row(
                           children: [
                             _buildMetricTile(
-                              title: 'Cost per Day',
+                              title: l10n.costPerDay,
                               value: stats.costPerDay > 0
                                   ? '${settings.currencySymbol} ${stats.costPerDay.toStringAsFixed(1)}'
                                   : 'N/A',
@@ -108,7 +123,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
                             ),
                             const SizedBox(width: 12),
                             _buildMetricTile(
-                              title: 'Average Economy',
+                              title: l10n.averageEconomy,
                               value: stats.avgMileage > 0
                                   ? '${stats.avgMileage.toStringAsFixed(1)} ${settings.economyUnit}'
                                   : 'N/A',
@@ -208,6 +223,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
 
   Widget _buildDonutChartCard(VehicleStatisticsSummary stats) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
     final settings = ref.watch(settingsProvider);
 
     return Padding(
@@ -220,14 +236,14 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Cost Breakdown (TCO)',
+                l10n.costBreakdownTitle,
                 style: theme.textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
               ),
               const SizedBox(height: 4),
               Text(
-                'Distribution across Fuel, Service, and Other Expenses',
+                l10n.costBreakdownSubtitle,
                 style: theme.textTheme.bodySmall?.copyWith(
                   color: theme.colorScheme.onSurface.withValues(alpha: 0.65),
                 ),
@@ -294,7 +310,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
                       ),
                       const SizedBox(width: 6),
                       Text(
-                        '${item.label}: ',
+                        '${_getLocalizedTcoLabel(item.label, l10n)}: ',
                         style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
                       ),
                       Text(
@@ -317,6 +333,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
 
   Widget _buildMonthlyBarChartCard(VehicleStatisticsSummary stats) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
     final settings = ref.watch(settingsProvider);
     final trends = stats.monthlyTrends;
 
@@ -336,14 +353,14 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Monthly Running Cost',
+                l10n.monthlyRunningCost,
                 style: theme.textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
               ),
               const SizedBox(height: 4),
               Text(
-                'Total spending trend per calendar month',
+                l10n.monthlyRunningCostSubtitle,
                 style: theme.textTheme.bodySmall?.copyWith(
                   color: theme.colorScheme.onSurface.withValues(alpha: 0.65),
                 ),
@@ -460,11 +477,11 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  _buildLegendDot(AppColors.primaryAmber, 'Fuel'),
+                  _buildLegendDot(AppColors.primaryAmber, l10n.navFuel),
                   const SizedBox(width: 16),
-                  _buildLegendDot(AppColors.secondaryTeal, 'Service'),
+                  _buildLegendDot(AppColors.secondaryTeal, l10n.navService),
                   const SizedBox(width: 16),
-                  _buildLegendDot(Colors.purple.shade400, 'Other'),
+                  _buildLegendDot(Colors.purple.shade400, l10n.expenses),
                 ],
               ),
             ],
@@ -476,6 +493,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
 
   Widget _buildMileageLineChartCard(VehicleStatisticsSummary stats) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
     final settings = ref.watch(settingsProvider);
     final points = stats.mileageTrend;
 
@@ -499,7 +517,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Fuel Efficiency Trend',
+                    l10n.fuelEfficiencyTrend,
                     style: theme.textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
@@ -523,7 +541,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
               ),
               const SizedBox(height: 4),
               Text(
-                'Full-to-full calculated economy across fill-ups',
+                l10n.fuelEconomyTrendSubtitle,
                 style: theme.textTheme.bodySmall?.copyWith(
                   color: theme.colorScheme.onSurface.withValues(alpha: 0.65),
                 ),
@@ -648,6 +666,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
 
   Widget _buildCategoryBreakdownCard(VehicleStatisticsSummary stats) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
     final settings = ref.watch(settingsProvider);
 
     return Padding(
@@ -660,7 +679,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Other Expenses by Category',
+                l10n.expensesByCategory,
                 style: theme.textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
@@ -737,6 +756,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
   }
 
   Widget _buildEmptyState() {
+    final l10n = AppLocalizations.of(context)!;
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(32.0),
@@ -757,14 +777,14 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
             ),
             const SizedBox(height: 20),
             Text(
-              'No Statistics Yet',
+              l10n.noStatisticsAvailable,
               style: Theme.of(context).textTheme.titleLarge?.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
             ),
             const SizedBox(height: 8),
             Text(
-              'Log fill-ups, services, and other expenses for this vehicle to generate rich charts and cost insights.',
+              l10n.noStatisticsDesc,
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.65),
