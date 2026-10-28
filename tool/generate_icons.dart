@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:image/image.dart' as img;
 
 void main() {
-  const srcPath = 'C:/Users/drclo/.gemini/antigravity/brain/605ac026-2488-42a4-8d11-5e61ea3cce5b/.user_uploaded/media_1793182167774_6f46598e.jpg';
+  const srcPath = 'C:/Users/drclo/.gemini/antigravity/brain/605ac026-2488-42a4-8d11-5e61ea3cce5b/.user_uploaded/media_1793186432055_3779661e.jpg';
   final bytes = File(srcPath).readAsBytesSync();
   final image = img.decodeImage(bytes);
   if (image == null) {

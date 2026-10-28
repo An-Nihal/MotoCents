@@ -1,6 +1,6 @@
 {
   "@@locale": "en",
-  "appTitle": "Fuel & Service Log",
+  "appTitle": "MotoCents",
   "@appTitle": {
     "description": "The title of the application"
   },
@@ -111,7 +111,7 @@
   "addCustomType": "Add Custom Type",
   "customTypeName": "Type Name",
   "privacyPolicy": "Privacy & Data Guarantee",
-  "aboutApp": "About Fuel & Service Log",
+  "aboutApp": "About MotoCents",
   "garageAndVehicles": "Garage & Vehicles",
   "myGarage": "My Garage",
   "myGarageSubtitle": "Add, edit, and manage all your vehicles",

@@ -1,5 +1,5 @@
 name: fuel_and_service_log
-description: "Fuel and Service Log - Production cross-platform mobile app."
+description: "MotoCents - Precision Vehicle Fuel, Maintenance & Expense Tracker."
 publish_to: 'none'
 
 version: 1.0.0+1

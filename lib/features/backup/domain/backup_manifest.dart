@@ -12,7 +12,7 @@ class BackupManifest {
   final String appVersion;
 
   const BackupManifest({
-    this.appName = 'Fuel and Service Log',
+    this.appName = 'MotoCents',
     this.schemaVersion = 1,
     required this.createdAt,
     this.vehicleCount = 0,
@@ -41,7 +41,7 @@ class BackupManifest {
 
   factory BackupManifest.fromMap(Map<String, dynamic> map) {
     return BackupManifest(
-      appName: map['appName'] as String? ?? 'Fuel and Service Log',
+      appName: map['appName'] as String? ?? 'MotoCents',
       schemaVersion: (map['schemaVersion'] as num?)?.toInt() ?? 1,
       createdAt: DateTime.tryParse(map['createdAt'] as String? ?? '') ?? DateTime.now(),
       vehicleCount: (map['vehicleCount'] as num?)?.toInt() ?? 0,

@@ -1,6 +1,6 @@
 {
   "@@locale": "bn",
-  "appTitle": "ফুয়েল ও সার্ভিস লগ",
+  "appTitle": "মটোসেন্টস",
   "navHome": "হোম",
   "navFuel": "জ্বালানি",
   "navService": "সার্ভিস",
@@ -108,7 +108,7 @@
   "addCustomType": "নতুন ধরণ যোগ করুন",
   "customTypeName": "ধরণের নাম",
   "privacyPolicy": "গোপনীয়তার নিশ্চয়তা",
-  "aboutApp": "ফুয়েল ও সার্ভিস লগ পরিচিতি",
+  "aboutApp": "মটোসেন্টস পরিচিতি",
   "garageAndVehicles": "গ্যারেজ ও যানবাহন",
   "myGarage": "আমার গ্যারেজ",
   "myGarageSubtitle": "আপনার সমস্ত যানবাহন যোগ, সম্পাদনা ও পরিচালনা করুন",

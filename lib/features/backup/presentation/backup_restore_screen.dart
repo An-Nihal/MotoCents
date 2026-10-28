@@ -454,7 +454,7 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
       await SharePlus.instance.share(
         ShareParams(
           files: [XFile(backupFile.path)],
-          text: 'Fuel & Service Log Encrypted Backup (${DateFormat('dd MMM yyyy').format(now)})',
+          text: 'MotoCents Encrypted Backup (${DateFormat('dd MMM yyyy').format(now)})',
         ),
       );
     } catch (e) {

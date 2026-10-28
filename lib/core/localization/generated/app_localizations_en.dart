@@ -10,7 +10,7 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get appTitle => 'Fuel & Service Log';
+  String get appTitle => 'MotoCents';
 
   @override
   String get navHome => 'Home';
@@ -346,7 +346,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get privacyPolicy => 'Privacy & Data Guarantee';
 
   @override
-  String get aboutApp => 'About Fuel & Service Log';
+  String get aboutApp => 'About MotoCents';
 
   @override
   String get garageAndVehicles => 'Garage & Vehicles';

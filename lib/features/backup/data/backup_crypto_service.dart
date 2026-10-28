@@ -12,7 +12,7 @@ class InvalidBackupPasswordException implements Exception {
 
 class InvalidBackupFormatException implements Exception {
   final String message;
-  const InvalidBackupFormatException([this.message = 'The selected file is not a valid Fuel and Service Log backup']);
+  const InvalidBackupFormatException([this.message = 'The selected file is not a valid MotoCents backup']);
   @override
   String toString() => 'InvalidBackupFormatException: $message';
 }

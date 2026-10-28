@@ -20,7 +20,7 @@ void main() {
         overrides: [
           databaseProvider.overrideWithValue(testDb),
         ],
-        child: const FuelAndServiceLogApp(),
+        child: const MotoCentsApp(),
       ),
     );
 

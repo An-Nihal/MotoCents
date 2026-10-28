@@ -101,7 +101,7 @@ abstract class AppLocalizations {
   /// The title of the application
   ///
   /// In en, this message translates to:
-  /// **'Fuel & Service Log'**
+  /// **'MotoCents'**
   String get appTitle;
 
   /// No description provided for @navHome.
@@ -749,7 +749,7 @@ abstract class AppLocalizations {
   /// No description provided for @aboutApp.
   ///
   /// In en, this message translates to:
-  /// **'About Fuel & Service Log'**
+  /// **'About MotoCents'**
   String get aboutApp;
 
   /// No description provided for @garageAndVehicles.

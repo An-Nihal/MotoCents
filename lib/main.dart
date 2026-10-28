@@ -9,13 +9,13 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
     const ProviderScope(
-      child: FuelAndServiceLogApp(),
+      child: MotoCentsApp(),
     ),
   );
 }
 
-class FuelAndServiceLogApp extends ConsumerWidget {
-  const FuelAndServiceLogApp({super.key});
+class MotoCentsApp extends ConsumerWidget {
+  const MotoCentsApp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -23,7 +23,7 @@ class FuelAndServiceLogApp extends ConsumerWidget {
     final settings = ref.watch(settingsProvider);
 
     return MaterialApp.router(
-      title: 'Fuel & Service Log',
+      title: 'MotoCents',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,

@@ -505,7 +505,7 @@ class _ReportsScreenState extends ConsumerState<ReportsScreen> {
       await SharePlus.instance.share(
         ShareParams(
           files: [XFile(filePath, mimeType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')],
-          text: 'Fuel & Service Log Export for ${vehicle.name}',
+          text: 'MotoCents Export for ${vehicle.name}',
         ),
       );
     } catch (e) {
@@ -572,7 +572,7 @@ class _ReportsScreenState extends ConsumerState<ReportsScreen> {
       await SharePlus.instance.share(
         ShareParams(
           files: [XFile(filePath, mimeType: 'text/csv')],
-          text: 'Fuel & Service Log $filePrefix for ${vehicle.name}',
+          text: 'MotoCents $filePrefix for ${vehicle.name}',
         ),
       );
     } catch (e) {

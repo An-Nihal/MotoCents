@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Fuel And Service Log</string>
+	<string>MotoCents</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -27,13 +27,13 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSFaceIDUsageDescription</key>
-	<string>Fuel and Service Log uses Face ID or Touch ID to securely unlock your encrypted document vault.</string>
+	<string>MotoCents uses Face ID or Touch ID to securely unlock your encrypted document vault.</string>
 	<key>NSCameraUsageDescription</key>
-	<string>Fuel and Service Log requires camera access to capture vehicle documents, fuel receipts, and odometer readings.</string>
+	<string>MotoCents requires camera access to capture vehicle documents, fuel receipts, and odometer readings.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Fuel and Service Log requires photo library access to attach vehicle images and receipt documents.</string>
+	<string>MotoCents requires photo library access to attach vehicle images and receipt documents.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Fuel and Service Log requires permission to save exported vehicle reports and documents to your device.</string>
+	<string>MotoCents requires permission to save exported vehicle reports and documents to your device.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

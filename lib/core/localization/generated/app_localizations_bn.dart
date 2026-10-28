@@ -10,7 +10,7 @@ class AppLocalizationsBn extends AppLocalizations {
   AppLocalizationsBn([String locale = 'bn']) : super(locale);
 
   @override
-  String get appTitle => 'ফুয়েল ও সার্ভিস লগ';
+  String get appTitle => 'মটোসেন্টস';
 
   @override
   String get navHome => 'হোম';
@@ -347,7 +347,7 @@ class AppLocalizationsBn extends AppLocalizations {
   String get privacyPolicy => 'গোপনীয়তার নিশ্চয়তা';
 
   @override
-  String get aboutApp => 'ফুয়েল ও সার্ভিস লগ পরিচিতি';
+  String get aboutApp => 'মটোসেন্টস পরিচিতি';
 
   @override
   String get garageAndVehicles => 'গ্যারেজ ও যানবাহন';

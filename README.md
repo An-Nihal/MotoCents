@@ -1,4 +1,4 @@
-# Fuel and Service Log 🚗💨
+# MotoCents 🏍️💰
 
 A production-quality, cross-platform (Android & iOS) mobile app built with Flutter for tracking vehicle fuel fill-ups and mileage, maintenance servicing, vehicle expenses, and sensitive driver/vehicle documents with client-side encryption.
 
