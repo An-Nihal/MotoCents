@@ -1,0 +1,53 @@
+name: Build iOS App
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch: # Allows manual trigger from GitHub Actions tab
+
+jobs:
+  build-ios:
+    name: Build & Package iOS App
+    runs-on: macos-14
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+
+      - name: Get dependencies
+        run: flutter pub get
+
+      - name: Generate localization files
+        run: flutter gen-l10n
+
+      - name: Run automated tests
+        run: flutter test
+
+      - name: Build iOS App (Release, No Code Sign)
+        run: flutter build ios --release --no-codesign
+
+      - name: Package IPA and App Bundle
+        run: |
+          mkdir -p build-ios/Payload
+          cp -R build/ios/iphoneos/Runner.app build-ios/Payload/
+          cd build-ios
+          zip -qr ../MotoCents-unsigned.ipa Payload
+          cd ..
+          zip -qr MotoCents-iOS-Runner.app.zip build/ios/iphoneos/Runner.app
+
+      - name: Upload iOS artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: MotoCents-iOS-Builds
+          path: |
+            MotoCents-unsigned.ipa
+            MotoCents-iOS-Runner.app.zip
+          retention-days: 14
