@@ -37,7 +37,7 @@ jobs:
 
       - name: Build iOS Simulator App (for Appetize.io & Xcode Simulator)
         run: |
-          flutter build ios --simulator
+          flutter build ios --simulator --no-codesign
           cd build/ios/iphonesimulator
           zip -r -X ../../../MotoCents-Simulator-Appetize.zip Runner.app
           cd ../../..
