@@ -35,13 +35,6 @@ jobs:
       - name: Run automated tests
         run: flutter test
 
-      - name: Build iOS Simulator App (for Appetize.io & Xcode Simulator)
-        run: |
-          flutter build ios --simulator --no-codesign
-          cd build/ios/iphonesimulator
-          zip -r -X ../../../MotoCents-Simulator-Appetize.zip Runner.app
-          cd ../../..
-
       - name: Build iOS Physical Device App (Release, No Code Sign)
         run: flutter build ios --release --no-codesign
 
@@ -50,7 +43,7 @@ jobs:
           mkdir -p build-ios/Payload
           cp -R build/ios/iphoneos/Runner.app build-ios/Payload/
           cd build-ios
-          zip -qr ../MotoCents-unsigned.ipa Payload
+          zip -qr ../MotoCents.ipa Payload
           cd ..
           zip -qr MotoCents-iOS-Runner.app.zip build/ios/iphoneos/Runner.app
 
@@ -59,7 +52,6 @@ jobs:
         with:
           name: MotoCents-iOS-Builds
           path: |
-            MotoCents-Simulator-Appetize.zip
-            MotoCents-unsigned.ipa
+            MotoCents.ipa
             MotoCents-iOS-Runner.app.zip
           retention-days: 14
