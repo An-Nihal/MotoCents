@@ -1,12 +1,12 @@
-import 'package:drift/drift.dart' as drift;
+﻿import 'package:drift/drift.dart' as drift;
 import 'package:drift/native.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:fuel_and_service_log/core/database/app_database.dart';
-import 'package:fuel_and_service_log/core/localization/generated/app_localizations.dart';
-import 'package:fuel_and_service_log/core/providers/database_provider.dart';
-import 'package:fuel_and_service_log/features/service/presentation/service_entry_form_screen.dart';
+import 'package:motocents/core/database/app_database.dart';
+import 'package:motocents/core/localization/generated/app_localizations.dart';
+import 'package:motocents/core/providers/database_provider.dart';
+import 'package:motocents/features/service/presentation/service_entry_form_screen.dart';
 
 void main() {
   testWidgets('ServiceEntryFormScreen - Multi-item and labor auto-sum',

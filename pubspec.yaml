@@ -1,4 +1,4 @@
-name: fuel_and_service_log
+name: motocents
 description: "MotoCents - Precision Vehicle Fuel, Maintenance & Expense Tracker."
 publish_to: 'none'
 

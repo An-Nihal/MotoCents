@@ -1,12 +1,12 @@
-import 'dart:convert';
+﻿import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 import 'package:drift/native.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:fuel_and_service_log/core/database/app_database.dart';
-import 'package:fuel_and_service_log/features/documents/domain/vault_crypto_service.dart';
-import 'package:fuel_and_service_log/features/expenses/data/expenses_repository.dart';
+import 'package:motocents/core/database/app_database.dart';
+import 'package:motocents/features/documents/domain/vault_crypto_service.dart';
+import 'package:motocents/features/expenses/data/expenses_repository.dart';
 
 class MockSecureStorage extends Fake implements FlutterSecureStorage {
   final Map<String, String> _storage = {};

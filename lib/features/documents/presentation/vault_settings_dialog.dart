@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:fuel_and_service_log/features/documents/domain/vault_auth_service.dart';
+import 'package:motocents/features/documents/domain/vault_auth_service.dart';
 import 'providers/documents_providers.dart';
 
 class VaultSettingsDialog extends ConsumerStatefulWidget {

@@ -1,19 +1,19 @@
-import 'dart:io';
+﻿import 'dart:io';
 import 'package:drift/native.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:fuel_and_service_log/core/database/app_database.dart';
-import 'package:fuel_and_service_log/core/localization/generated/app_localizations.dart';
-import 'package:fuel_and_service_log/core/providers/database_provider.dart';
-import 'package:fuel_and_service_log/features/documents/data/documents_repository.dart';
-import 'package:fuel_and_service_log/features/documents/domain/vault_crypto_service.dart';
-import 'package:fuel_and_service_log/features/documents/presentation/document_form_screen.dart';
-import 'package:fuel_and_service_log/features/documents/presentation/documents_screen.dart';
-import 'package:fuel_and_service_log/features/documents/presentation/providers/documents_providers.dart';
-import 'package:fuel_and_service_log/features/documents/presentation/quick_show_screen.dart';
-import 'package:fuel_and_service_log/features/documents/presentation/vault_lock_view.dart';
+import 'package:motocents/core/database/app_database.dart';
+import 'package:motocents/core/localization/generated/app_localizations.dart';
+import 'package:motocents/core/providers/database_provider.dart';
+import 'package:motocents/features/documents/data/documents_repository.dart';
+import 'package:motocents/features/documents/domain/vault_crypto_service.dart';
+import 'package:motocents/features/documents/presentation/document_form_screen.dart';
+import 'package:motocents/features/documents/presentation/documents_screen.dart';
+import 'package:motocents/features/documents/presentation/providers/documents_providers.dart';
+import 'package:motocents/features/documents/presentation/quick_show_screen.dart';
+import 'package:motocents/features/documents/presentation/vault_lock_view.dart';
 import 'documents_repository_test.dart';
 
 class FakeUnlockedVaultNotifier extends VaultLockNotifier {

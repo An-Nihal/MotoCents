@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:fuel_and_service_log/core/localization/locale_formatter.dart';
+import 'package:motocents/core/localization/locale_formatter.dart';
 
 void main() {
   group('LocaleFormatter', () {

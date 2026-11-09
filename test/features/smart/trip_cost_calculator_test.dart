@@ -1,6 +1,6 @@
-import 'package:flutter_test/flutter_test.dart';
-import 'package:fuel_and_service_log/features/smart/domain/trip_calculator_models.dart';
-import 'package:fuel_and_service_log/features/smart/domain/trip_cost_calculator.dart';
+﻿import 'package:flutter_test/flutter_test.dart';
+import 'package:motocents/features/smart/domain/trip_calculator_models.dart';
+import 'package:motocents/features/smart/domain/trip_cost_calculator.dart';
 
 void main() {
   group('TripCostCalculator Unit Tests', () {

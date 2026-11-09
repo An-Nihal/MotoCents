@@ -1,7 +1,7 @@
-import 'package:flutter_test/flutter_test.dart';
-import 'package:fuel_and_service_log/core/database/app_database.dart';
-import 'package:fuel_and_service_log/features/statistics/domain/statistics_calculator.dart';
-import 'package:fuel_and_service_log/features/statistics/domain/statistics_models.dart';
+﻿import 'package:flutter_test/flutter_test.dart';
+import 'package:motocents/core/database/app_database.dart';
+import 'package:motocents/features/statistics/domain/statistics_calculator.dart';
+import 'package:motocents/features/statistics/domain/statistics_models.dart';
 
 void main() {
   group('StatisticsCalculator Unit Tests', () {

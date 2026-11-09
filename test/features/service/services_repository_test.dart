@@ -1,8 +1,8 @@
-import 'package:drift/drift.dart' hide isNull, isNotNull;
+﻿import 'package:drift/drift.dart' hide isNull, isNotNull;
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:fuel_and_service_log/core/database/app_database.dart';
-import 'package:fuel_and_service_log/features/service/data/services_repository.dart';
+import 'package:motocents/core/database/app_database.dart';
+import 'package:motocents/features/service/data/services_repository.dart';
 
 void main() {
   late AppDatabase db;

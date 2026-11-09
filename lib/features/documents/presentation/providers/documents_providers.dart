@@ -1,11 +1,11 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:fuel_and_service_log/core/database/app_database.dart';
-import 'package:fuel_and_service_log/core/notifications/notification_service.dart';
-import 'package:fuel_and_service_log/core/providers/database_provider.dart';
-import 'package:fuel_and_service_log/core/providers/vehicles_provider.dart';
-import 'package:fuel_and_service_log/features/documents/data/documents_repository.dart';
-import 'package:fuel_and_service_log/features/documents/domain/vault_auth_service.dart';
-import 'package:fuel_and_service_log/features/documents/domain/vault_crypto_service.dart';
+﻿import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:motocents/core/database/app_database.dart';
+import 'package:motocents/core/notifications/notification_service.dart';
+import 'package:motocents/core/providers/database_provider.dart';
+import 'package:motocents/core/providers/vehicles_provider.dart';
+import 'package:motocents/features/documents/data/documents_repository.dart';
+import 'package:motocents/features/documents/domain/vault_auth_service.dart';
+import 'package:motocents/features/documents/domain/vault_crypto_service.dart';
 
 final vaultCryptoServiceProvider = Provider<VaultCryptoService>((ref) {
   return VaultCryptoService();

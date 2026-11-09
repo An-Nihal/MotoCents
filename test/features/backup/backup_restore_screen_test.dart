@@ -1,11 +1,11 @@
-import 'package:drift/native.dart';
+﻿import 'package:drift/native.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:fuel_and_service_log/core/database/app_database.dart';
-import 'package:fuel_and_service_log/core/localization/generated/app_localizations.dart';
-import 'package:fuel_and_service_log/core/providers/database_provider.dart';
-import 'package:fuel_and_service_log/features/backup/presentation/backup_restore_screen.dart';
+import 'package:motocents/core/database/app_database.dart';
+import 'package:motocents/core/localization/generated/app_localizations.dart';
+import 'package:motocents/core/providers/database_provider.dart';
+import 'package:motocents/features/backup/presentation/backup_restore_screen.dart';
 
 void main() {
   late AppDatabase db;

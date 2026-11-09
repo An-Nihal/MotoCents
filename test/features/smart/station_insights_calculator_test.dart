@@ -1,6 +1,6 @@
-import 'package:flutter_test/flutter_test.dart';
-import 'package:fuel_and_service_log/features/fuel/domain/mileage_calculator.dart';
-import 'package:fuel_and_service_log/features/smart/domain/station_insights_calculator.dart';
+﻿import 'package:flutter_test/flutter_test.dart';
+import 'package:motocents/features/fuel/domain/mileage_calculator.dart';
+import 'package:motocents/features/smart/domain/station_insights_calculator.dart';
 
 class MockFuelEntry {
   final String id;

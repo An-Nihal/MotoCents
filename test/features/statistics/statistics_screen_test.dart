@@ -1,20 +1,20 @@
-import 'dart:io';
+﻿import 'dart:io';
 import 'package:drift/drift.dart' as drift;
 import 'package:drift/native.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:fuel_and_service_log/core/database/app_database.dart';
-import 'package:fuel_and_service_log/core/localization/generated/app_localizations.dart';
-import 'package:fuel_and_service_log/core/providers/database_provider.dart';
-import 'package:fuel_and_service_log/core/providers/vehicles_provider.dart';
-import 'package:fuel_and_service_log/features/documents/domain/vault_crypto_service.dart';
-import 'package:fuel_and_service_log/features/expenses/data/expenses_repository.dart';
-import 'package:fuel_and_service_log/features/expenses/presentation/providers/expenses_providers.dart';
-import 'package:fuel_and_service_log/features/fuel/data/fuel_entries_repository.dart';
-import 'package:fuel_and_service_log/features/service/data/services_repository.dart';
-import 'package:fuel_and_service_log/features/statistics/presentation/statistics_screen.dart';
+import 'package:motocents/core/database/app_database.dart';
+import 'package:motocents/core/localization/generated/app_localizations.dart';
+import 'package:motocents/core/providers/database_provider.dart';
+import 'package:motocents/core/providers/vehicles_provider.dart';
+import 'package:motocents/features/documents/domain/vault_crypto_service.dart';
+import 'package:motocents/features/expenses/data/expenses_repository.dart';
+import 'package:motocents/features/expenses/presentation/providers/expenses_providers.dart';
+import 'package:motocents/features/fuel/data/fuel_entries_repository.dart';
+import 'package:motocents/features/service/data/services_repository.dart';
+import 'package:motocents/features/statistics/presentation/statistics_screen.dart';
 import '../documents/documents_repository_test.dart';
 
 void main() {

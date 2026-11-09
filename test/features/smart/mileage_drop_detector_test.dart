@@ -1,7 +1,7 @@
-import 'package:flutter_test/flutter_test.dart';
-import 'package:fuel_and_service_log/features/fuel/domain/mileage_calculator.dart';
-import 'package:fuel_and_service_log/features/smart/domain/mileage_anomaly.dart';
-import 'package:fuel_and_service_log/features/smart/domain/mileage_drop_detector.dart';
+﻿import 'package:flutter_test/flutter_test.dart';
+import 'package:motocents/features/fuel/domain/mileage_calculator.dart';
+import 'package:motocents/features/smart/domain/mileage_anomaly.dart';
+import 'package:motocents/features/smart/domain/mileage_drop_detector.dart';
 
 class MockFuelEntry {
   final String id;

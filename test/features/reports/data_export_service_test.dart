@@ -1,9 +1,9 @@
-import 'package:flutter_test/flutter_test.dart';
-import 'package:fuel_and_service_log/core/database/app_database.dart';
-import 'package:fuel_and_service_log/features/expenses/data/expenses_repository.dart';
-import 'package:fuel_and_service_log/features/fuel/domain/mileage_calculator.dart';
-import 'package:fuel_and_service_log/features/reports/data/data_export_service.dart';
-import 'package:fuel_and_service_log/features/service/data/services_repository.dart';
+﻿import 'package:flutter_test/flutter_test.dart';
+import 'package:motocents/core/database/app_database.dart';
+import 'package:motocents/features/expenses/data/expenses_repository.dart';
+import 'package:motocents/features/fuel/domain/mileage_calculator.dart';
+import 'package:motocents/features/reports/data/data_export_service.dart';
+import 'package:motocents/features/service/data/services_repository.dart';
 
 void main() {
   late DataExportService exportService;

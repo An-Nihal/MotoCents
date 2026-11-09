@@ -1,0 +1,71 @@
+================================================================================
+MOTOCENTS — STORE LISTING METADATA FOR AMAZON APPSTORE & APKPURE
+================================================================================
+
+[APP TITLE]
+MotoCents
+
+[SUBTITLE / SHORT DESCRIPTION] (Under 80 characters)
+Track vehicle fuel, mileage, maintenance servicing, and encrypted documents.
+
+[DETAILED DESCRIPTION]
+MotoCents is your precision vehicle companion designed to track fuel efficiency, maintenance history, daily expenses, and sensitive vehicle documents with 100% offline privacy and bank-grade encryption.
+
+Whether you drive a motorcycle, car, microbus, or truck, MotoCents gives you complete control over your vehicle's running costs and total cost of ownership (TCO).
+
+🌟 KEY FEATURES:
+
+⛽ SMART FUEL LOGGING & REAL-TIME MILEAGE
+• Full-to-Full fuel tank calculation for accurate fuel efficiency (km/L, L/100km, MPG).
+• Live 2-of-3 Auto-Calculation: Enter any two of Quantity, Price, or Total Cost, and the third is calculated instantly.
+• Trip meter or total odometer tracking with odometer consistency checks.
+• Fuel efficiency drop alerts and historical fuel price trend analysis.
+
+🔧 SERVICE & MAINTENANCE TRACKER
+• Log oil changes, brake pads, chain adjustments, tyre rotations, and general repairs.
+• Multi-item service invoices with part costs and workshop labor separation.
+• Dual service reminders based on both distance (e.g. every 3,000 km) and elapsed days (e.g. every 90 days).
+
+🔒 ENCRYPTED DOCUMENT & RECEIPT VAULT
+• Protect your driving license, vehicle registration smart card, tax token, insurance, and receipts.
+• Authenticated AES-256-GCM encryption with device-hardware key storage.
+• Protected by device biometric authentication (Fingerprint / Face Unlock / PIN).
+• "Quick Show" mode for fast roadside police checks without exposing the rest of your app.
+
+📊 COMPREHENSIVE COST & MILEAGE ANALYTICS
+• Detailed interactive monthly spend graphs, category breakdowns, and fuel cost per kilometer.
+• Station insights: Compare fuel stations to see where you get the best mileage and lowest rates.
+• Built-in Trip Cost Calculator: Split trip fuel and highway tolls across passengers.
+
+📄 BUYER-READY REPORTS & EXPORT
+• Generate buyer-ready, professional PDF Vehicle History Reports with complete maintenance history.
+• Export raw data to Excel (.xlsx) and CSV sheets.
+• Encrypted single-file backups (.fslbackup) to move your data between devices securely.
+
+🌐 BILINGUAL SUPPORT (ENGLISH & বাংলা)
+• Seamless switching between English and Bengali (বাংলা).
+• Supports local currencies (BDT ৳, USD $, EUR €, INR ₹, GBP £, and more).
+• Locale-aware Bengali numerals (০, ১, ২...).
+
+🛡️ 100% OFFLINE & PRIVATE
+• No sign-up or login required.
+• Zero telemetry, zero third-party cloud tracking.
+• All database records and encrypted vault files reside exclusively on your physical device.
+
+================================================================================
+[CATEGORIES]
+Primary: Auto & Vehicles / Transportation
+Secondary: Finance / Productivity / Utilities
+
+[KEYWORDS / TAGS]
+motocents, fuel log, mileage tracker, gas calculator, vehicle maintenance, car service log, motorcycle log, expense tracker, vehicle documents, fuel economy, car manager
+
+[CONTENT RATING]
+Rating: Everyone / All Ages (3+)
+Violence: None
+In-App Purchases: None
+User Account Required: No
+Personal Data Shared: None (100% Local / Offline)
+Location Tracking: None
+================================================================================
+

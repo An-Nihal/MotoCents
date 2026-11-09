@@ -1,8 +1,8 @@
-import 'package:drift/drift.dart';
+﻿import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:fuel_and_service_log/core/database/app_database.dart';
-import 'package:fuel_and_service_log/features/fuel/data/fuel_entries_repository.dart';
+import 'package:motocents/core/database/app_database.dart';
+import 'package:motocents/features/fuel/data/fuel_entries_repository.dart';
 
 void main() {
   late AppDatabase db;

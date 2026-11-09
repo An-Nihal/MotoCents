@@ -1,5 +1,5 @@
-import 'package:flutter_test/flutter_test.dart';
-import 'package:fuel_and_service_log/features/ocr/domain/receipt_ocr_parser.dart';
+﻿import 'package:flutter_test/flutter_test.dart';
+import 'package:motocents/features/ocr/domain/receipt_ocr_parser.dart';
 
 void main() {
   group('ReceiptOcrParser Unit Tests', () {
