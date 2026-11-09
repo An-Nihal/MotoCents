@@ -1,5 +1,5 @@
 import 'package:drift/drift.dart';
-import 'connection/native.dart' as conn;
+import 'connection/connection.dart' as conn;
 import 'seed/default_seeds.dart';
 import 'tables/attachment_tables.dart';
 import 'tables/document_tables.dart';
