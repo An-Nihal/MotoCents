@@ -1,6 +1,20 @@
 # MotoCents 🏍️💰
 
-A production-quality, cross-platform (Android & iOS) mobile app built with Flutter for tracking vehicle fuel fill-ups and mileage, maintenance servicing, vehicle expenses, and sensitive driver/vehicle documents with client-side encryption.
+A production-quality, cross-platform (Android, iOS & Web PWA) mobile app built with Flutter for tracking vehicle fuel fill-ups and mileage, maintenance servicing, vehicle expenses, and sensitive driver/vehicle documents with client-side encryption.
+
+---
+
+## 📱 Live Web App & Instant iPhone Install
+
+Anyone can run MotoCents immediately without installing anything from an app store, or install it as a standalone progressive web app on iPhone / iPad with zero sideloading:
+
+🌐 **Live Web App**: **[https://an-nihal.github.io/MotoCents](https://an-nihal.github.io/MotoCents)**
+
+### 🍏 How to Install on iPhone / iPad:
+1. Open **[https://an-nihal.github.io/MotoCents](https://an-nihal.github.io/MotoCents)** in **Safari**.
+2. Tap the **Share** button (the square with an upward arrow at the bottom).
+3. Scroll down and tap **Add to Home Screen** (হোম স্ক্রিনে যোগ করুন).
+4. Tap **Add**. MotoCents installs directly to your home screen with its app icon and runs full screen with offline support!
 
 ---
 
